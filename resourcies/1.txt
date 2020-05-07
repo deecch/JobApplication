@@ -1,0 +1,1 @@
+Dejan;22;1;nesto@gmail.com;111;DOO;1;1;0;0;nesto.txt;
