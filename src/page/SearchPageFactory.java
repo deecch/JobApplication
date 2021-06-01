@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.ui.Select;
 
 
 public class SearchPageFactory {
@@ -15,40 +16,31 @@ public class SearchPageFactory {
 	WebDriver driver;
 
 	
-	@FindBy(xpath="//input[@name='entry.1781500597']")
+	@FindBy(xpath="//input[@id='Widget322884199']")
 	WebElement nameField;
 	
-	@FindBy(xpath="//input[@name='entry.1640447617']")
+	@FindBy(xpath="//input[@id='Widget1049550588']")
 	WebElement email;
 	
-	@FindBy(xpath="//input[@name='entry.297979220']")
+	@FindBy(xpath="//input[@id='Widget118987505']")
 	WebElement phone;
 	
-	@FindBy(xpath="//input[@name='entry.1774034311']")
-	WebElement employer;
-	
-	@FindBy(xpath="//body[contains(@class,'freebirdLightBackground')]/div[contains(@class,'freebirdFormviewerViewFormContentWrapper')]/div[contains(@class,'freebirdFormviewerViewCenteredContent')]/form[@id='mG61Hd']/div[contains(@class,'freebirdFormviewerViewFormCard exportFormCard')]/div[contains(@class,'freebirdFormviewerViewFormContent')]/div[contains(@class,'freebirdFormviewerViewItemList')]/div[contains(@class,'freebirdFormviewerViewNumberedItemContainer')]/div[contains(@class,'freebirdFormviewerViewItemsItemItem')]/div/div[contains(@class,'appsMaterialWizToggleRadiogroupGroupContainer exportGroupContainer freebirdFormviewerViewItemsRadiogroupRadioGroup')]/span[contains(@class,'appsMaterialWizToggleRadiogroupGroupContent exportGroupContent')]/div[contains(@class,'freebirdFormviewerViewItemsRadioChoicesContainer')]/div[1]/label[1]/div[1]/div[1]/div[1]/div[3]/div[1]")
+	@FindBy(xpath="//input[@id='entry.1513009557.Less then one year']")
 	WebElement expirienceField1;
 	
-	@FindBy(xpath="//body[contains(@class,'freebirdLightBackground')]/div[contains(@class,'freebirdFormviewerViewFormContentWrapper')]/div[contains(@class,'freebirdFormviewerViewCenteredContent')]/form[@id='mG61Hd']/div[contains(@class,'freebirdFormviewerViewFormCard exportFormCard')]/div[contains(@class,'freebirdFormviewerViewFormContent')]/div[contains(@class,'freebirdFormviewerViewItemList')]/div[contains(@class,'freebirdFormviewerViewNumberedItemContainer')]/div[contains(@class,'freebirdFormviewerViewItemsItemItem')]/div/div[contains(@class,'appsMaterialWizToggleRadiogroupGroupContainer exportGroupContainer freebirdFormviewerViewItemsRadiogroupRadioGroup')]/span[contains(@class,'appsMaterialWizToggleRadiogroupGroupContent exportGroupContent')]/div[contains(@class,'freebirdFormviewerViewItemsRadioChoicesContainer')]/div[2]/label[1]/div[1]/div[1]/div[1]/div[3]/div[1]")
+	@FindBy(xpath="//input[@id='entry.1513009557.1-2']")
 	WebElement expirienceField2;
 	
-	@FindBy(xpath="//body[contains(@class,'freebirdLightBackground')]/div[contains(@class,'freebirdFormviewerViewFormContentWrapper')]/div[contains(@class,'freebirdFormviewerViewCenteredContent')]/form[@id='mG61Hd']/div[contains(@class,'freebirdFormviewerViewFormCard exportFormCard')]/div[contains(@class,'freebirdFormviewerViewFormContent')]/div[contains(@class,'freebirdFormviewerViewItemList')]/div[contains(@class,'freebirdFormviewerViewNumberedItemContainer')]/div[contains(@class,'freebirdFormviewerViewItemsItemItem')]/div/div[contains(@class,'appsMaterialWizToggleRadiogroupGroupContainer exportGroupContainer freebirdFormviewerViewItemsRadiogroupRadioGroup')]/span[contains(@class,'appsMaterialWizToggleRadiogroupGroupContent exportGroupContent')]/div[contains(@class,'freebirdFormviewerViewItemsRadioChoicesContainer')]/div[3]/label[1]/div[1]/div[1]/div[1]/div[3]/div[1]")
+	@FindBy(xpath="//input[@id='entry.1513009557.3 and more']")
 	WebElement expirienceField3;
 	
-	@FindBy(xpath="//body[@class='freebirdLightBackground']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewItemList']/div[@class='freebirdFormviewerViewNumberedItemContainer']/div[@class='freebirdFormviewerViewItemsItemItem HasError']/div/div[1]/div[1]/label[1]/div[1]/div[1]/div[2]")
-	WebElement position1MultipleSelection;
+	@FindBy(xpath="/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[1]/div[2]/div[5]/select[1]")
+	WebElement position;
 	
-	@FindBy(xpath="//body[@class='freebirdLightBackground']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewItemList']/div[@class='freebirdFormviewerViewNumberedItemContainer']/div[@class='freebirdFormviewerViewItemsItemItem HasError']/div/div[2]/div[1]/label[1]/div[1]/div[1]/div[2]")
-	WebElement position2MultipleSelection;
-	
-	@FindBy(xpath="//body[@class='freebirdLightBackground']/div[@class='freebirdFormviewerViewFormContentWrapper']/div[@class='freebirdFormviewerViewCenteredContent']/form[@id='mG61Hd']/div[@class='freebirdFormviewerViewFormCard exportFormCard']/div[@class='freebirdFormviewerViewFormContent']/div[@class='freebirdFormviewerViewItemList']/div[@class='freebirdFormviewerViewNumberedItemContainer']/div[@class='freebirdFormviewerViewItemsItemItem HasError']/div/div[2]/div[1]/label[1]/div[1]/div[1]/div[2]")
-	WebElement position3MultipleSelection;
-	
-	@FindBy(xpath="//div[@class='appsMaterialWizButtonEl hasIcon appsMaterialWizButtonPaperbuttonEl appsMaterialWizButtonPaperbuttonHairline freebirdFormviewerViewItemsFileuploadAddButton']//span[@class='appsMaterialWizButtonPaperbuttonContent exportButtonContent hasIcon']")
+	@FindBy(xpath="//a[contains(text(),'Add file')]")
 	WebElement addButton;
 	
-	@FindBy(xpath="//span[contains(text(),'Submit')]")
+	@FindBy(xpath="/html[1]/body[1]/div[3]/div[1]/div[1]/form[1]/div[1]/div[3]/button[1]")
 	WebElement submit;
 	
 	public SearchPageFactory(WebDriver driver) {
@@ -56,26 +48,27 @@ public class SearchPageFactory {
 		PageFactory.initElements(driver, this);
 	}
 	
-	public void nameTextBox(String name) {
+	public void nameTextBox(String name) throws InterruptedException {
+		Thread.sleep(3000);
 		nameField.sendKeys(name);
+		Thread.sleep(3000);
+		
 	}
 	
-	public void emailTextBox(String emailField) {
-		email.clear();
+	public void emailTextBox(String emailField) throws InterruptedException {
+		//email.clear();
+		Thread.sleep(3000);
 		email.sendKeys(emailField);
+		Thread.sleep(3000);
 	}
 	
 	public void phoneTextBox(String phoneField) {
-		phone.clear();
+		//phone.clear();
 		phone.sendKeys(phoneField);
 	}
 	
-	public void employerTextBox(String employerField) {
-		employer.clear();
-		employer.sendKeys(employerField);
-	}
-	
-	public void experienceRadioButton(int experienceField) {
+	public void experienceRadioButton(int experienceField) throws InterruptedException {
+		Thread.sleep(3000);
 		if(experienceField == 1) {
 			expirienceField1.click();
         }
@@ -85,47 +78,28 @@ public class SearchPageFactory {
         if(experienceField == 3) {
         	expirienceField3.click();
         }
+        Thread.sleep(3000);
 	}
 	
-	public void positionMultipleSelect(int position1, int position2, int position3) {
-		if(position1 != 0) {
-			position1MultipleSelection.click();
-        }
-        if(position2 != 0) {
-        	position2MultipleSelection.click();
-        }
-        if(position3 != 0) {
-        	position3MultipleSelection.click();
-        }
-  	}
+	public void positionDropBox(int positionField) {
+		//phone.clear();
+		Select sl = new Select(position);
+		sl.selectByIndex(positionField);
+	}
 	
 	public void uploadFile(String file) throws AWTException, IOException, InterruptedException {
 		addButton.click();
-		
+			
 		Thread.sleep(3000);
-		
+
 		Robot robot = new Robot();
+		
+		robot.setAutoDelay(1000);
+		
 		robot.keyPress(KeyEvent.VK_ENTER);
 		robot.keyRelease(KeyEvent.VK_ENTER);
 		
-		Thread.sleep(3000);
-		
 		Runtime.getRuntime().exec(file);
-		
-		Thread.sleep(3000);
-		
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		
-		Thread.sleep(3000);
-		
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
-		
-		Thread.sleep(3000);
-		
-		robot.keyPress(KeyEvent.VK_TAB);
-		robot.keyRelease(KeyEvent.VK_TAB);
 		
 		Thread.sleep(3000);
 		

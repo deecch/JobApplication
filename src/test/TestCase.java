@@ -1,71 +1,74 @@
 package test;
 
-
+//import java.io.File;
+import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-import org.apache.log4j.Appender;
-import org.apache.log4j.ConsoleAppender;
-import org.apache.log4j.Level;
-import org.apache.log4j.Logger;
-import org.apache.log4j.PatternLayout;
+//import org.apache.log4j.Appender;
+//import org.apache.log4j.ConsoleAppender;
+//import org.apache.log4j.Level;
+//import org.apache.log4j.Logger;
+//import org.apache.log4j.PatternLayout;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.firefox.FirefoxDriver;
-import org.openqa.selenium.firefox.FirefoxOptions;
-import org.openqa.selenium.firefox.FirefoxProfile;
-import org.openqa.selenium.firefox.internal.ProfilesIni;
-import org.testng.Assert;
-import page.SearchPageFactory;
 
+import org.openqa.selenium.firefox.FirefoxDriver;
+//import org.openqa.selenium.firefox.FirefoxOptions;
+//import org.openqa.selenium.firefox.FirefoxProfile;
+//import org.openqa.selenium.firefox.internal.ProfilesIni;
+import org.testng.Assert;
+
+import model.TestFields;
+import page.SearchPageFactory;
+import utilities.Log;
+import utilities.ReadFromCsv;
 
 public class TestCase {
 	private WebDriver driver;
 	private String baseUrl;
 	SearchPageFactory searchPage;
-	static Logger log = Logger.getLogger(TestCase.class);
-	static Appender append;
+	ReadFromCsv read = new ReadFromCsv();
+	@SuppressWarnings("static-access")
+	List <TestFields> fields = read.readFieldsFromCsv("src\\utilities\\fields.csv");
 
 	@Before
 	public void setUp() throws Exception {
-		ProfilesIni profile = new ProfilesIni();
-		FirefoxProfile fxProfile = profile.getProfile("automationprofiles");
-		FirefoxOptions options = new FirefoxOptions();
-		options.setProfile(fxProfile);
-		driver = new FirefoxDriver(options);
+
+		driver = new FirefoxDriver();
 		
-		baseUrl = "https://docs.google.com/forms/d/e/1FAIpQLScPQN1X8YhJQj7Oq-Rq248ialdUVFThc5atKG-a8ogmHIUQSQ/viewform";
-		
-		final PatternLayout layout = new PatternLayout();
-		layout.setConversionPattern("%d{yyyy-MM-dd} --%-10p %c{1} -%m%n");
-		append = new ConsoleAppender(layout);
-		log.addAppender(append);
-		log.setLevel(Level.INFO);
+		baseUrl = "https://formfaca.de/sm/lFnEJPB9T";
 		
 		searchPage = new SearchPageFactory(driver);
 		// Maximize the browser's window
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+		driver.get(baseUrl);
+		Log.info("Browser Started ...");
+	
+		
 	}
 
 	@Test
 	public void test() throws Exception {
-		driver.get(baseUrl);
-		searchPage.nameTextBox("Petar");
-		searchPage.emailTextBox("petar@gmail.com");
-		searchPage.phoneTextBox("222-333");
-		searchPage.employerTextBox("manager");
-		searchPage.experienceRadioButton(1);
-		searchPage.positionMultipleSelect(1, 0, 1);
-		searchPage.uploadFile("C:\\Users\\komp\\Selenium\\JobApplication\\Scripts\\fileupload1.exe");
-		searchPage.clickSubmitButton();
 		
-
-		boolean result = driver.findElements(By.xpath("//form[@id='new_user']//div[3]")).size() != 0;
-		Assert.assertFalse(result);
-		log.info("Test is" + result);
+		//searchPage.nameTextBox(fields.get(0).getName());
+		//searchPage.emailTextBox(fields.get(0).getEmail());
+		//searchPage.phoneTextBox(fields.get(0).getPhone());
+		//searchPage.experienceRadioButton(fields.get(0).getExperience());
+		//searchPage.positionDropBox(1);
+		//searchPage.uploadFile(fields.get(0).getFile());
+		searchPage.clickSubmitButton();
+		Log.info("Form Submitted ...");
+		
+		Assert.assertTrue(driver.findElements(By.xpath("//button[contains(text(),'Create your own form')]")).size() != 0);
+		if(driver.findElements(By.xpath("//button[contains(text(),'Create your own form')]")).size() != 0) {
+			Log.info("Test passed");
+		}else {
+		    Log.info("Test failed");
+		}	
 	}
 	
 	@After

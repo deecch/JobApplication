@@ -1,0 +1,19 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Parallel TestSuite" parallel="tests" thread-count="2">
+	<listeners>
+		<listener class-name="utilities.TestNG_Listeners"></listener>
+	</listeners>
+	<test name="Chrome Test">
+		<parameter name="browser" value="chrome"></parameter>
+		<!-- <parameter name="position" value="2"></parameter> -->
+		<classes>
+			<class name="test.TestNG_TestCase"></class>
+		</classes>
+	</test>
+	<!-- <test name="Firefox Test"> <parameter name="browser" value="firefox"></parameter> 
+		<parameter name="name" value="Petar"></parameter> <parameter name="email" 
+		value="petar@email.com"></parameter> <parameter name="phone" value="333"></parameter> 
+		<parameter name="experience" value="1"></parameter> <parameter name="position" 
+		value="2"></parameter> <parameter name="file" value="C:\\Users\\komp\\Selenium\\JobApplication\\Scripts\\fileupload1.exe"></parameter> 
+		<classes> <class name="test.TestNG_TestCase"></class> </classes> </test> -->
+</suite>
